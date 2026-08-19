@@ -44,15 +44,15 @@ AGENT_ALIASES = {
 # Models
 # ==========================================================
 
-COORDINATOR_MODEL = "llama-3.1-8b-instant"
+COORDINATOR_MODEL = "openai/gpt-oss-20b"
 
-PHISHING_MODEL = "llama-3.1-8b-instant"
+PHISHING_MODEL = "openai/gpt-oss-20b"
 
-THREAT_MODEL = "llama-3.1-8b-instant"
+THREAT_MODEL = "openai/gpt-oss-20b"
 
-SOC_MODEL = "llama-3.1-8b-instant"
+SOC_MODEL = "openai/gpt-oss-20b"
 
-REPORT_MODEL = "llama-3.1-8b-instant"
+REPORT_MODEL = "openai/gpt-oss-20b"
 
 # ==========================================================
 # Environment Variable Names
