@@ -1,0 +1,32 @@
+[
+  {
+    "event_id": 1,
+    "host": "WS-102",
+    "user": "alice",
+    "description": "Employee reports laptop running unusually slow."
+  },
+  {
+    "event_id": 2,
+    "host": "HR-PC01",
+    "user": "bob",
+    "description": "PowerShell executed from WINWORD.EXE."
+  },
+  {
+    "event_id": 3,
+    "host": "FIN-SERVER",
+    "user": "service_account",
+    "description": "Outbound connection detected to 185.243.115.84."
+  },
+  {
+    "event_id": 4,
+    "host": "DEV-12",
+    "user": "charlie",
+    "description": "Multiple failed login attempts followed by successful authentication."
+  },
+  {
+    "event_id": 5,
+    "host": "WS-205",
+    "user": "david",
+    "description": "Unknown executable added to startup registry."
+  }
+]

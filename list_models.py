@@ -1,0 +1,18 @@
+import os
+from dotenv import load_dotenv
+from google import genai
+
+load_dotenv()
+
+api_key = os.getenv("COORDINATOR_API_KEY")
+
+if not api_key:
+    raise ValueError("COORDINATOR_API_KEY not found in .env")
+
+client = genai.Client(api_key=api_key)
+
+print("\nAvailable Gemini Models:\n")
+print("-" * 60)
+
+for model in client.models.list():
+    print(model.name)

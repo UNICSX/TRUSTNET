@@ -1,0 +1,1559 @@
+/* ===========================================================
+   TRUSTNET — Professional SOC Console Theme
+   Midnight Navy / Electric Cyan / Indigo
+=========================================================== */
+
+/* -----------------------------------------------------------
+   Fonts
+----------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+
+/* -----------------------------------------------------------
+   Design Tokens
+----------------------------------------------------------- */
+
+:root {
+
+    --background: #070B14;
+    --background-secondary: #0B1120;
+
+    --sidebar: #090F1C;
+
+    --card: #101827;
+    --card-hover: #141F31;
+
+    --border: #1F3047;
+    --border-light: #263A55;
+
+    --primary: #22D3EE;
+    --primary-dark: #0891B2;
+
+    --indigo: #6366F1;
+    --indigo-soft: rgba(99, 102, 241, 0.14);
+
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --danger: #F43F5E;
+
+    --text: #F1F5F9;
+    --text-secondary: #CBD5E1;
+    --subtext: #8291A8;
+
+    --code-background: #080D17;
+
+}
+
+
+/* -----------------------------------------------------------
+   Global Page
+----------------------------------------------------------- */
+
+html,
+body,
+[data-testid="stAppViewContainer"] {
+
+    background:
+        radial-gradient(
+            circle at 85% 5%,
+            rgba(34, 211, 238, 0.055),
+            transparent 25%
+        ),
+        var(--background);
+
+    color: var(--text);
+
+    font-family: 'Inter', sans-serif;
+
+}
+
+
+/* Main Streamlit container */
+
+.main {
+    background: transparent;
+}
+
+
+/* -----------------------------------------------------------
+   Sidebar
+----------------------------------------------------------- */
+
+[data-testid="stSidebar"] {
+
+    background:
+        linear-gradient(
+            180deg,
+            #090F1C 0%,
+            #070C16 100%
+        );
+
+    border-right: 1px solid var(--border);
+
+}
+
+[data-testid="stSidebar"] * {
+    color: var(--text);
+}
+
+[data-testid="stSidebar"] hr {
+
+    border-color: var(--border);
+
+}
+
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
+
+    color: var(--subtext);
+
+}
+
+
+/* -----------------------------------------------------------
+   Typography
+----------------------------------------------------------- */
+
+h1 {
+
+    font-size: 40px;
+    font-weight: 700;
+
+    letter-spacing: -0.025em;
+
+    margin-bottom: 0;
+
+}
+
+h2 {
+
+    font-size: 28px;
+    font-weight: 600;
+
+    letter-spacing: -0.015em;
+
+}
+
+h3 {
+
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+h4 {
+
+    font-size: 15px;
+    font-weight: 600;
+
+    color: var(--text-secondary);
+
+}
+
+p {
+
+    color: var(--subtext);
+
+    line-height: 1.6;
+
+}
+
+
+/* -----------------------------------------------------------
+   Main Header
+----------------------------------------------------------- */
+
+.main-header {
+
+    position: relative;
+
+    padding: 30px 32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0D1728 0%,
+            #0B1424 55%,
+            #0B1020 100%
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    margin-bottom: 30px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+
+}
+
+
+/* Cyan accent line */
+
+.main-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 3px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--primary),
+            var(--indigo)
+        );
+
+}
+
+
+/* subtle glow */
+
+.main-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: -90px;
+    top: -120px;
+
+    background: rgba(34, 211, 238, 0.08);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+}
+
+.main-header h1 {
+
+    color: #F8FAFC;
+
+}
+
+/* .main-header p {
+
+    margin-top: 6px;
+
+    color: var(--subtext);
+
+} */
+
+
+/* -----------------------------------------------------------
+   Section Headers
+----------------------------------------------------------- */
+
+.section-header {
+
+    margin-top: 28px;
+
+    margin-bottom: 18px;
+
+    padding: 4px 0 12px 2px;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+.section-title {
+
+    color: var(--text);
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.01em;
+
+}
+
+.section-subtitle {
+
+    margin-top: 5px;
+
+    color: var(--subtext);
+
+    font-size: 13px;
+
+}
+
+
+/* -----------------------------------------------------------
+   Cards
+----------------------------------------------------------- */
+
+.dashboard-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 24, 39, 0.98),
+            rgba(12, 19, 32, 0.98)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    margin-bottom: 18px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+/* Professional hover — no floating cards */
+
+.dashboard-card:hover {
+
+    border-color: var(--border-light);
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.22);
+
+}
+
+
+/* -----------------------------------------------------------
+   Agent Cards
+----------------------------------------------------------- */
+
+.agent-card {
+
+    min-height: 280px;
+
+    position: relative;
+
+}
+
+.agent-card h3 {
+
+    color: var(--text);
+
+    font-size: 18px;
+
+}
+
+.agent-card hr {
+
+    border: none;
+
+    border-top: 1px solid var(--border);
+
+    margin: 16px 0;
+
+}
+
+
+/* -----------------------------------------------------------
+   Status Badges
+----------------------------------------------------------- */
+
+.status-success,
+.status-warning,
+.status-danger,
+.status-running {
+
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.035em;
+
+    text-transform: uppercase;
+
+}
+
+
+/* Completed */
+
+.status-success {
+
+    background: rgba(34, 197, 94, 0.10);
+
+    color: #4ADE80;
+
+    border: 1px solid rgba(34, 197, 94, 0.22);
+
+}
+
+
+/* Waiting / partial */
+
+.status-warning {
+
+    background: rgba(245, 158, 11, 0.10);
+
+    color: #FBBF24;
+
+    border: 1px solid rgba(245, 158, 11, 0.22);
+
+}
+
+
+/* Failed / high risk */
+
+.status-danger {
+
+    background: rgba(244, 63, 94, 0.10);
+
+    color: #FB7185;
+
+    border: 1px solid rgba(244, 63, 94, 0.22);
+
+}
+
+
+/* Running */
+
+.status-running {
+
+    background: rgba(34, 211, 238, 0.10);
+
+    color: var(--primary);
+
+    border: 1px solid rgba(34, 211, 238, 0.22);
+
+}
+
+
+/* -----------------------------------------------------------
+   Buttons
+----------------------------------------------------------- */
+
+.stButton > button {
+
+    width: 100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0891B2,
+            #06B6D4
+        );
+
+    color: #ECFEFF;
+
+    border: 1px solid rgba(34, 211, 238, 0.35);
+
+    border-radius: 8px;
+
+    padding: 11px 14px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.01em;
+
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+.stButton > button:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0E7490,
+            #0891B2
+        );
+
+    box-shadow:
+        0 0 22px rgba(34, 211, 238, 0.18);
+
+}
+
+
+/* -----------------------------------------------------------
+   Text Areas / Inputs
+----------------------------------------------------------- */
+
+.stTextInput input,
+.stTextArea textarea {
+
+    background: #0A111D;
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    font-family: 'Inter', sans-serif;
+
+}
+
+.stTextArea textarea {
+
+    line-height: 1.6;
+
+}
+
+.stTextInput input:focus,
+.stTextArea textarea:focus {
+
+    border-color: rgba(34, 211, 238, 0.55);
+
+    box-shadow:
+        0 0 0 1px rgba(34, 211, 238, 0.12);
+
+}
+
+
+/* -----------------------------------------------------------
+   Runtime Metrics
+----------------------------------------------------------- */
+
+[data-testid="metric-container"] {
+
+    background:
+        linear-gradient(
+            145deg,
+            #101827,
+            #0C1422
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    padding: 14px;
+
+    box-shadow: none;
+
+}
+
+[data-testid="stMetricLabel"] {
+
+    color: var(--subtext);
+
+    font-size: 12px;
+
+}
+
+[data-testid="stMetricValue"] {
+
+    color: var(--text);
+
+    font-weight: 600;
+
+}
+
+
+/* -----------------------------------------------------------
+   IOC / Evidence Values
+----------------------------------------------------------- */
+
+.ioc-value {
+
+    background: var(--code-background);
+
+    border: 1px solid var(--border);
+
+    border-left: 2px solid var(--primary);
+
+    border-radius: 6px;
+
+    padding: 10px 12px;
+
+    margin-bottom: 8px;
+
+    color: #DCE7F3;
+
+    font-family: 'JetBrains Mono', monospace;
+
+    font-size: 12px;
+
+    word-break: break-all;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+.ioc-value:hover {
+
+    background: #0C1624;
+
+    border-left-color: var(--indigo);
+
+}
+
+
+/* -----------------------------------------------------------
+   Recommendation Cards
+----------------------------------------------------------- */
+
+.recommendation-card {
+
+    border-left: 3px solid var(--primary);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(34, 211, 238, 0.055),
+            transparent
+        );
+
+}
+
+
+/* -----------------------------------------------------------
+   Timeline
+----------------------------------------------------------- */
+
+.timeline-item {
+
+    margin-bottom: 12px;
+
+    border-left: 2px solid var(--indigo);
+
+    border-radius: 0 8px 8px 0;
+
+    padding-left: 18px;
+
+}
+
+.timeline-item b {
+
+    color: var(--text);
+
+}
+
+.timeline-item > div:first-child {
+
+    color: var(--subtext);
+
+}
+
+
+/* -----------------------------------------------------------
+   Progress Bar
+----------------------------------------------------------- */
+
+.stProgress > div > div {
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--indigo)
+        );
+
+}
+
+
+/* -----------------------------------------------------------
+   Tables
+----------------------------------------------------------- */
+
+table {
+
+    border-collapse: collapse;
+
+    width: 100%;
+
+}
+
+thead {
+
+    background: #111C2C;
+
+}
+
+tbody {
+
+    background: #0D1624;
+
+}
+
+th,
+td {
+
+    border: 1px solid var(--border);
+
+    color: var(--text);
+
+    padding: 10px;
+
+}
+
+
+/* -----------------------------------------------------------
+   Code / Logs
+----------------------------------------------------------- */
+
+code,
+pre {
+
+    font-family: 'JetBrains Mono', monospace;
+
+}
+
+
+/* -----------------------------------------------------------
+   Alerts / Status Messages
+----------------------------------------------------------- */
+
+[data-testid="stAlert"] {
+
+    border-radius: 8px;
+
+    border: 1px solid var(--border);
+
+}
+
+
+/* -----------------------------------------------------------
+   Expanders
+----------------------------------------------------------- */
+
+[data-testid="stExpander"] {
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: #0D1624;
+
+}
+
+
+/* -----------------------------------------------------------
+   Scrollbar
+----------------------------------------------------------- */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: #070B14;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #20314A;
+
+    border-radius: 10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #2C4564;
+
+}
+
+
+/* -----------------------------------------------------------
+   Animations
+----------------------------------------------------------- */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+.fade-up {
+
+    animation: fadeUp 0.35s ease;
+
+}
+
+
+/* -----------------------------------------------------------
+   Footer
+----------------------------------------------------------- */
+
+.footer {
+
+    color: var(--subtext);
+
+    text-align: center;
+
+    margin-top: 40px;
+
+    padding-top: 18px;
+
+    font-size: 12px;
+
+    border-top: 1px solid var(--border);
+
+}
+
+
+/* -----------------------------------------------------------
+   Streamlit Branding
+----------------------------------------------------------- */
+
+#MainMenu {
+
+    visibility: hidden;
+
+}
+
+footer {
+
+    visibility: hidden;
+
+}
+
+header {
+
+    visibility: hidden;
+
+}
+
+
+/* ===========================================================
+   TRUSTNET — Advanced SOC Visual Layer
+=========================================================== */
+
+/* -----------------------------------------------------------
+   TRUSTNET Header
+----------------------------------------------------------- */
+
+.main-header {
+
+    position: relative;
+
+    height: 92px;
+
+    padding: 0 24px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #07101B 0%,
+            #08131F 45%,
+            #07101B 100%
+        );
+
+    border: 1px solid #182D42;
+
+    border-radius: 10px;
+
+    margin-bottom: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.25);
+
+}
+
+
+/* Header content */
+
+.header-content {
+
+    position: relative;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 3;
+
+}
+
+
+/* Brand */
+
+.header-brand h1 {
+
+    margin: 0;
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.02em;
+
+    background:
+        linear-gradient(
+            90deg,
+            #F8FAFC,
+            #DDEBFF
+        );
+
+    /* -webkit-background-clip: text; */
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+.header-brand p {
+
+    margin: 3px 0 0 0;
+
+    font-size: 12px;
+
+    color: #7F91A8;
+
+}
+
+
+/* -----------------------------------------------------------
+   Header Wave
+----------------------------------------------------------- */
+
+.header-wave {
+
+    position: absolute;
+
+    left: 42%;
+
+    right: 11%;
+
+    top: 0;
+
+    bottom: 0;
+
+    overflow: hidden;
+
+    opacity: 0.75;
+
+}
+
+
+.header-wave span {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 28px;
+
+    border-top: 1px solid rgba(34, 211, 238, 0.22);
+
+    border-radius: 50%;
+
+    transform-origin: center;
+
+}
+
+
+.header-wave span:nth-child(1) {
+
+    top: 30px;
+
+    transform:
+        rotate(2deg)
+        scaleY(1.2);
+
+}
+
+
+.header-wave span:nth-child(2) {
+
+    top: 38px;
+
+    border-color:
+        rgba(34, 211, 238, 0.12);
+
+    transform:
+        rotate(-2deg)
+        scaleY(1.5);
+
+}
+
+
+.header-wave span:nth-child(3) {
+
+    top: 46px;
+
+    border-color:
+        rgba(99, 102, 241, 0.15);
+
+    transform:
+        rotate(1deg)
+        scaleY(1.3);
+
+}
+
+
+/* -----------------------------------------------------------
+   System Clock
+----------------------------------------------------------- */
+
+.system-time {
+
+    min-width: 125px;
+
+    padding: 9px 12px;
+
+    border: 1px solid #183047;
+
+    border-radius: 8px;
+
+    background:
+        rgba(7, 15, 25, 0.72);
+
+    text-align: right;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.025);
+
+}
+
+
+.system-label {
+
+    font-size: 8px;
+
+    letter-spacing: 0.12em;
+
+    color: #62758B;
+
+}
+
+
+.system-clock {
+
+    margin-top: 2px;
+
+    font-family:
+        'JetBrains Mono',
+        monospace;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #22D3EE;
+
+}
+
+
+.system-zone {
+
+    margin-top: 2px;
+
+    font-size: 8px;
+
+    color: #596B80;
+
+}
+
+/* -----------------------------------------------------------
+   Cyber Grid Background
+----------------------------------------------------------- */
+
+[data-testid="stAppViewContainer"] {
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(7, 11, 20, 0.96),
+            rgba(7, 11, 20, 0.96)
+        ),
+        linear-gradient(
+            rgba(34, 211, 238, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(34, 211, 238, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        auto,
+        40px 40px,
+        40px 40px;
+
+}
+
+
+/* -----------------------------------------------------------
+   Section Headers
+----------------------------------------------------------- */
+
+.section-header {
+
+    position: relative;
+
+    margin-top: 30px;
+
+    margin-bottom: 20px;
+
+    padding: 8px 0 14px 14px;
+
+    border-bottom: 1px solid rgba(34, 211, 238, 0.12);
+
+}
+
+
+/* glowing vertical accent */
+
+.section-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 3px;
+
+    width: 3px;
+    height: 34px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #22D3EE,
+            #6366F1
+        );
+
+    box-shadow:
+        0 0 12px rgba(34, 211, 238, 0.45);
+
+}
+
+
+.section-title {
+
+    font-size: 21px;
+
+    font-weight: 650;
+
+    color: #F8FAFC;
+
+    letter-spacing: 0.01em;
+
+}
+
+
+.section-subtitle {
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: #71819A;
+
+}
+
+
+/* -----------------------------------------------------------
+   Header Glow
+----------------------------------------------------------- */
+
+.main-header {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+/* animated light */
+
+.main-header::before {
+
+    animation: headerPulse 5s ease-in-out infinite;
+
+}
+
+
+@keyframes headerPulse {
+
+    0%,
+    100% {
+
+        opacity: 0.7;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* -----------------------------------------------------------
+   Glass Card Effect
+----------------------------------------------------------- */
+
+.dashboard-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 24, 39, 0.94),
+            rgba(8, 15, 27, 0.96)
+        );
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(50, 75, 105, 0.55);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.025),
+        0 8px 30px rgba(0,0,0,0.20);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.dashboard-card:hover {
+
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(34, 211, 238, 0.30);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.035),
+        0 12px 35px rgba(0,0,0,0.28),
+        0 0 20px rgba(34,211,238,0.035);
+
+}
+
+
+/* -----------------------------------------------------------
+   Agent Cards
+----------------------------------------------------------- */
+
+.agent-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+/* subtle cyan scanning line */
+
+.agent-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 45%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(34,211,238,0.55),
+            transparent
+        );
+
+    transition: left 0.7s ease;
+
+}
+
+
+.agent-card:hover::after {
+
+    left: 120%;
+
+}
+
+
+/* -----------------------------------------------------------
+   Agent Status Glow
+----------------------------------------------------------- */
+
+.status-success {
+
+    box-shadow:
+        0 0 10px rgba(34,197,94,0.08);
+
+}
+
+
+.status-running {
+
+    box-shadow:
+        0 0 12px rgba(34,211,238,0.14);
+
+    animation: statusPulse 2s ease-in-out infinite;
+
+}
+
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+
+        box-shadow:
+            0 0 8px rgba(34,211,238,0.08);
+
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 18px rgba(34,211,238,0.20);
+
+    }
+
+}
+
+
+.status-danger {
+
+    box-shadow:
+        0 0 10px rgba(244,63,94,0.08);
+
+}
+
+
+/* -----------------------------------------------------------
+   Primary Button
+----------------------------------------------------------- */
+
+.stButton > button {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.stButton > button::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.14),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.6s ease;
+
+}
+
+
+.stButton > button:hover::before {
+
+    left: 130%;
+
+}
+
+
+/* -----------------------------------------------------------
+   IOC Values
+----------------------------------------------------------- */
+
+.ioc-value {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.ioc-value::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 40%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(34,211,238,0.06),
+            transparent
+        );
+
+    transition: left 0.5s ease;
+
+}
+
+
+.ioc-value:hover::after {
+
+    left: 120%;
+
+}
+
+
+/* -----------------------------------------------------------
+   Timeline
+----------------------------------------------------------- */
+
+.timeline-item {
+
+    position: relative;
+
+    border-left:
+        2px solid rgba(99,102,241,0.55);
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.timeline-item:hover {
+
+    border-left-color:
+        rgba(34,211,238,0.75);
+
+}
+
+
+/* -----------------------------------------------------------
+   Scrollbar Glow
+----------------------------------------------------------- */
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            180deg,
+            #1D3850,
+            #16283D
+        );
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        linear-gradient(
+            180deg,
+            #28516B,
+            #203B54
+        );
+
+}
+
+
+/* -----------------------------------------------------------
+   Subtle Page Entrance
+----------------------------------------------------------- */
+
+.main-header,
+.section-header,
+.dashboard-card {
+
+    animation:
+        trustnetFadeIn 0.45s ease both;
+
+}
+
+
+@keyframes trustnetFadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(6px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}

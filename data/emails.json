@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "sender": "security@paypa1-support.com",
+    "reply_to": "help@paypa1-support.com",
+    "subject": "Urgent: Verify Your Account",
+    "body": "Your PayPal account has been limited. Verify immediately.",
+    "links": [
+      "http://192.168.0.25/login"
+    ],
+    "label": "phishing"
+  },
+  {
+    "id": 2,
+    "sender": "notifications@github.com",
+    "reply_to": "notifications@github.com",
+    "subject": "New Pull Request",
+    "body": "A pull request has been opened in your repository.",
+    "links": [
+      "https://github.com"
+    ],
+    "label": "legit"
+  }
+]
